@@ -1,0 +1,32 @@
+<!--Including the Header File on our Page-->
+<%- include('partials/header.ejs') %>
+
+<div class="ui main container">
+    <div class="ui huge header">RESTful Blogs</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach(function(blog){ %>
+                <div class="items">
+                    <h2><%=blog.title%></h2>
+                    <div class="image">
+                        <img src = "<%=blog.image%>">
+                    </div>
+                    <div class="meta">
+                        <span><%=blog.created.toDateString()%></span>
+                    </div>
+                    <div class="description">
+                        <p><%=blog.body.substring(0,100)%>.....</p>
+                    </div>
+                    <div class="extra">
+                        <a class="ui inverted orange button" href="/blogs/<%= blog._id%>">Read More</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    </div>
+
+<!--Including the Footer File on our Page-->
+<!--Include the Footer File-->
+<%- include('partials/footer.ejs') %>
+
